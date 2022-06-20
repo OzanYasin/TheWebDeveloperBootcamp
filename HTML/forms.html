@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Form Element</title>
+  </head>
+  <body>
+    <!------------------------ input ------------------------>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
+    <!-- 
+      The input element is used to create a variety of different form controls. 
+      We have 20+ pssible types of inputs, rangin from date pickers to checkboxes.
+      The "type" attribute is where the magic happens. Changing type dramatically alters the input's behavior and appearance.
+    -->
+    <h1>Forms Demo</h1>
+    <form action="/tacos">
+      <!-- http://127.0.0.1:5500/tacos?username=ozan&password=1234&color=%23004cff&num=444 -->
+      <!-- Default Text -->
+      <p>
+        <label for="username">Enter a Username:</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="username"
+          name="username"
+        />
+        <!-- What ever name (in this case it's "username") it is, that is the name that will be used to send the data to the server. -->
+      </p>
+      <!-- Password -->
+      <p>
+        <label for="password">Enter a Password</label>
+        <input type="password" placeholder="password" name="password" />
+      </p>
+      <!-- Color Picker -->
+      <p>
+        <label for="color">Pick a Color:</label>
+        <input id="color" type="color" name="color" />
+      </p>
+      <!-- Number -->
+      <p>
+        <!-- Alternative way to label and input (*less common) -->
+        <label for="number">
+          Enter a Number:
+          <input
+            id="number"
+            type="number"
+            placeholder="enter a number"
+            name="num"
+          />
+        </label>
+      </p>
+
+      <!------------------------ label ------------------------>
+      <!-- The label text is not only visually associated with its corresponding text input; it is programmatically associated with it too. -->
+      <!-- "for" references to "id". That tells us they are associated.-->
+
+      <!------------------------ button ------------------------>
+      <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button -->
+
+      <!-- Submitting The Form -->
+      <!-- !! As a default behavior it will submit the form. (locate to it goes) !! -->
+      <button>Submit</button>
+
+      <!-------------------- name attribute -------------------->
+      <!-- Simple things that your server look for. -->
+      <!-- Should have put every single input that is used. -->
+    </form>
+    <hr />
+    <h2>Hijacking Searches</h2>
+    <h2>Search Reddit</h2>
+    <!-- Button Examples for Searching (Google & YouTube) -->
+    <form action="https://www.google.com/search">
+      <input type="text" name="q" />
+      <button>Search Google</button>
+    </form>
+
+    <h2>Search Google</h2>
+    <form action="https://www.youtube.com/results">
+      <input type="text" name="search_query" />
+      <button>Search YouTube</button>
+    </form>
+    <!--------------------- Check Boxes -------------------->
+    <h2>More Inputs!</h2>
+    <form action="/chickens">
+      <input type="checkbox" name="agree" id="agree" />
+      <label for="agree">I aggree to everything</label>
+      <!--------------------- Radio Buttons ----------------->
+      <p>
+        <label for="s">S</label>
+        <input type="radio" name="size" id="s" value="small" />
+        <label for="m">M</label>
+        <input type="radio" name="size" id="m" value="medium" />
+        <label for="l">L</label>
+        <input type="radio" name="size" id="l" value="large" />
+        <!-- !! Three of them has same "name". In that case, only one of them can be choosen. -->
+        <!-- !! Value is what we sent to server when its submited. -->
+      </p>
+      <button>Submit</button>
+      <!------------------------ select ------------------------>
+      <!-- The select is the parenting groups together bunch of options. -->
+      <label for="meal">Please Select an Entree</label>
+      <select name="meal" id="">
+        <option value="fish">Fish</option>
+        <option value="veg">Vegetarian</option>
+        <option value="steak" selected>Steak</option>
+        <!-- !! Value is what we sent to server when its submited. -->
+      </select>
+      <p>
+        <label for="cheese">Amount of Cheese</label>
+        <input
+          type="range"
+          name="cheese"
+          id="cheese"
+          min="1"
+          max="100"
+          step="5"
+          value="50"
+        />
+      </p>
+      <!--------------------- Text Area ----------------->
+      <p>
+        <label for="request"></label>
+        <textarea
+          name="request"
+          id="request"
+          cols="30"
+          rows="10"
+          placeholder="Type something here"
+        ></textarea>
+      </p>
+    </form>
+  </body>
+</html>

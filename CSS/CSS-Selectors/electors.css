@@ -1,0 +1,194 @@
+/******************* Wolrd of CSS Selectors *******************/
+
+/******************* Universal Selector: "*" *******************/
+
+/*
+* {
+  color: black;
+}
+*/
+
+/********************* Multiple Selector: *********************/
+
+/* 
+h1,
+h2 {
+  color: black;
+} 
+*/
+
+/********************** The ID Selector **********************/
+
+body {
+  background-color: #f1faee;
+}
+
+button {
+  font-size: 30px;
+  background-color: #a8dadc;
+}
+
+#sign {
+  background-color: #1d3557;
+  color: #f1faee;
+}
+
+/******************** The Class Selector ********************/
+
+span {
+  color: #457b9d;
+}
+
+.tag {
+  background-color: #e63946;
+  color: #f1faee;
+  font-size: 16px;
+  border-radius: 3rem;
+  padding: 0.2rem;
+}
+
+.post a {
+  color: #457b9d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/******************** Descendant Selector ********************/
+/* Select all <a>'s that are nested inside an <footer> */
+footer a {
+  color: #e63946;
+}
+
+/******************** The Adjacent Selectors ********************/
+/* Select only the paragpraphs that are immediately preceded by an <h1> */
+
+/*
+h1 + p {
+  color: red;
+}
+*/
+
+input + button {
+  background-color: pink;
+}
+
+h2 + button {
+  font-size: 16px;
+}
+
+/*************** Direct - Descendant Selectors ***************/
+/* Direct Child */
+/* Select only the <li>'s that are direct children of a <div> element */
+
+/*
+div > li {
+  color: white;
+*/
+
+footer > a {
+  color: #3369ff;
+}
+
+/******************** The Attribute Selector ********************/
+/* Select all input elements where the type attribute is set to "text" */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors */
+
+/*
+input[type="text"] {
+  width: 300px;
+  color: yellow;
+}
+*/
+
+input[type="password"] {
+  color: grey;
+}
+
+/******************** Pseudo Classes ********************/
+/* keyword added to a selector that specifies a special state of the selected elements(s) */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes */
+
+/*
+    :active
+    :checked
+    :first
+    :first-child
+    :hover
+    :not()
+    :nth-child()
+    :nth-of-type()
+*/
+
+/* !! It will affect every button but no ID !! */
+.post button:hover {
+  background-color: #e63946;
+  color: #f1faee;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+.post button:active {
+  background-color: #02c39a;
+}
+
+.post:nth-of-type(2n) {
+  background-color: #c5d1c1;
+}
+
+/******************** Pseudo Elements ********************/
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements */
+
+/*
+    ::after
+    ::before
+    ::first-letter
+    ::first-line
+    ::selection
+*/
+
+h2::first-letter {
+  font-size: 30px;
+}
+
+h2::selection {
+  background-color: #f5b534;
+}
+
+/******************** The Cascade ******************/
+/* The order your styles are declared in and linked to matters! */
+
+/********************* The Specificity *********************/
+/* Specifity is how the browser decides which rules to apply when multiple rules could apply to the same element. */
+
+/* It is a measure of how specific a given selector is. The more specific seletor "wins". */
+
+button:hover {
+  background-color: olive;
+}
+
+/* !!! (Inline Styles) > ID > Class > Element !!! */
+
+/******************** !important ******************/
+/* Its a signal to the browser that should be the most specific possible thing, and it should overwrite any other declarations. */
+/* Do not use it. */
+
+/* 
+button {
+  background-color: magenta !important;
+} 
+*/
+
+/******************** Inheritance ******************/
+/* Setting it to inherit from whatever the nearest parent is has the property. */
+
+form {
+  color: #f5b534;
+}
+
+/* The color property inherited from the "form". */
+button,
+input {
+  color: inherit;
+}

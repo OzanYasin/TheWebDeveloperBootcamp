@@ -1,0 +1,30 @@
+/*************** Font Size Basics with Pixels ***************/
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/font-size?retiredLocale=tr */
+
+/* Absolute Unites:
+
+  ! 1px does not necessarily equal the width of exactly one pixel.
+
+  ! Not recommended for responsive websites.
+*/
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+  text-decoration: #f78129 wavy underline;
+  letter-spacing: 15px;
+  /* Sizing The Font of Text */
+  font-size: 50px;
+  /* Choosing Font Family in ORDER (priority matters) */
+  font-family: Fantasy, Arial, sans-serif;
+  /* Uppercase All Letters */
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.25;
+}

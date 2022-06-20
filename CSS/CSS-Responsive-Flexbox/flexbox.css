@@ -1,0 +1,83 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+h1 {
+  text-align: center;
+}
+#container {
+  background-color: #003049;
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  border: 5px solid #003049;
+  display: flex;
+  /* flex-direction allows us to main axis direction in our container. Default is "flex-direction: row" */
+  /* Row but reversed: */
+  flex-direction: row-reverse;
+  /* !! justify-content is not horizontal or vertical, it can be either depending on "flex-direction". */
+  justify-content: center;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap */
+  flex-wrap: no-wrap;
+  /* align-items is going to distribute space along the cross axis. Default is flex-start */
+  /* align-items: baseline -> align items to baseline of text. That can be useful if you have different heights for your elements, but they do have text that you want to be aligned. */
+  align-items: center;
+  /* The CSS align-content property sets the distribution of space between and around content items along a flexbox's cross-axis. */
+  /* This property has no effect on single line flex containers (i.e. ones with flex-wrap: nowrap). */
+}
+
+#container div {
+  width: 200px;
+  height: 200px;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-basis is measurement the width that is used when we are in a row. Axis is depens on flex-direction. Its initial size that an element should be added into our box as. */
+  flex-basis: 250px;
+}
+
+div:nth-of-type(3) {
+  /* It aligns the item on the cross axis. */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/align-self */
+  align-self: flex-end;
+}
+
+div:first-of-type {
+  /* flex-grod accepts unitless number. It takes up all the available space. */
+  flex-grow: 1;
+}
+
+div:nth-of-type(4) {
+  /* first and 4th box has equally eating up that available space. */
+  flex-grow: 1;
+  /* flex-shrink -> If items are larger than the container. They shrink according to flex-shrink ratio. If its set to 0, it will not shrink even if the page is so small. */
+  flex-shrink: 2;
+  /* If every div element has "flex-grow: 1;" non of them would be 200px anymore. They are all growing to take up that space evenly. */
+}
+
+/* Flex Shorhand Exercise */
+/* The flex CSS shorthand property sets how a flex item will grow or shrink to fit the space available in its flex container. */
+
+h2 {
+  text-align: center;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  border: 5px solid black;
+  height: 500px;
+  display: flex;
+}
+
+.sidebar {
+  background-color: #6930c3;
+  /* Three values: flex-grow | flex-shrink | flex-basis */
+  flex: 1 1.5 300px;
+}
+
+.maincontent {
+  background-color: #80ffdb;
+  /* Two values: flex-grow | flex-basis */
+  flex: 2 800px;
+}

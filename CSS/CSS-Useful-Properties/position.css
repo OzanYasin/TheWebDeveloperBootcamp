@@ -1,0 +1,57 @@
+/********* The Position Property *********/
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: #3d405b;
+  border: 2px solid black;
+  margin: 10px;
+  display: inline-block;
+}
+
+#middle {
+  background-color: #81b29a;
+}
+
+/********* The Position Property: Static *********/
+
+#static #middle {
+  position: static;
+  /* Noting will be changed due to static position property. Its fixed. */
+  top: 100px;
+}
+
+/********* The Position Property: Relative *********/
+
+#relative #middle {
+  position: relative;
+  /* Relative is going to keep the element in the normal flow of the document. But we can offset it relative to itself by using top, right, left, and bottom. */
+  top: 50px;
+  left: 50px;
+  /* #middle positioned relative to it normally would be. */
+}
+
+/********* The Position Property: Absolute *********/
+/* The element is removed from the normal document flow, and no space is created for the element in the page layout. */
+
+#absolute {
+  position: relative;
+}
+/* If there is no relative positioned #absolute it will take reference as body container, not section box. */
+
+#absolute #middle {
+  /* It will be positioned relative to box that is inside. */
+  position: absolute;
+  top: 20px;
+  left: 10px;
+}
+
+/********* The Position Property: Fixed *********/
+/* Kind of absolute, except it has nothing to do with any parent element. */
+
+#fixed #middle {
+  position: fixed;
+  /* It is going to stay there always offset from initial container box. In our case, by nothing (body) */
+  top: 0;
+  left: 500px;
+}

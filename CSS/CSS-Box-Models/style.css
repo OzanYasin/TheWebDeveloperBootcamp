@@ -1,0 +1,84 @@
+/****************** Box Model: Width & Height ********************/
+
+.hello {
+  background-color: pink;
+  width: 100px;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  background-color: #e5989b;
+}
+
+/************** Box Model: Border & Border Radius ****************/
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/border */
+
+#one {
+  background-color: #e5989b;
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
+  /* container size equals to width include border width. 190px + (2*5)px */
+  box-sizing: border-box;
+}
+
+#two {
+  background-color: #b5838d;
+  border-color: #ffcdb2;
+  border-width: 3px;
+  border-style: dashed;
+  border-left-width: 8px;
+  /* container size equals to box width + border width (expands) */
+}
+
+#three {
+  background-color: #6d6875;
+  /* Mostly used in that way as "border" property. */
+  /* border: line-width line-style color */
+  border: 4px solid black;
+  border-left-style: dotted;
+  border-radius: 50%;
+}
+
+/******************** Box Model: Padding *********************/
+/* Adding space between the border and content */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/padding */
+
+.hello {
+  padding-left: 100px;
+  padding-top: 50px;
+}
+
+button {
+  /* Adding 0px top & bottom, 20px right & left */
+  padding: 0px 20px;
+}
+
+/******************** Box Model: Margin **********************/
+/* Margin is the space outside of an element's border, between that element and something else. */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/margin?retiredLocale=tr */
+/* Margin Shorthand Property works same as padding */
+
+/******************** The Display Property *******************/
+
+.display-h1 {
+  background-color: palegoldenrod;
+  border: 1px solid black;
+  /* h1 is a block element but it will behave as an inline element just like a span. */
+  display: inline;
+}
+/* Block element is responsive to margin and padding. */
+
+.display-span {
+  background-color: palevioletred;
+  border: 1px solid black;
+  /* If an element has display of inline, width & height is ignored. */
+  width: 500px;
+  /* Responsive to padding on all axis. */
+  padding: 50px;
+  /* Does not respond to margin y-axis but x-axis due to inline display.*/
+  margin: 50px;
+}
+
+/* "display: inline-block" has block element property as inline :-)  */

@@ -1,0 +1,58 @@
+/******************* CSS Units: Percentages *******************/
+
+/* width: 50% - half the width of the parent */
+/* line-height: 50% - half the font-size of
+the element itself */
+
+section {
+  background-color: #6d6875;
+  width: 800px;
+  height: 800px;
+}
+
+div {
+  background-color: #e5989b;
+  width: 50%;
+  height: 50%;
+}
+
+h1 {
+  font-size: 40px;
+  border: 1px solid black;
+  line-height: 200%;
+  /* It means 2 * font-size (80px in that case) */
+}
+
+/*********************** CSS Units: ems ***********************/
+
+/* With font-size, 1em equals the font-size
+of the parent. 2em's is twice the fontsize of the parent, etc.
+ */
+
+button {
+  font-size: 50px;
+  padding: 0 1em;
+  /* With other properties, 1em is equal to
+the computed font-size of the element
+itself. */
+  border-radius: 1em;
+  background-color: #2a9d8f;
+  color: white;
+}
+
+/*********************** CSS Units: rems ***********************/
+/* Relative to the root html element's font-size. Often easier to work with. */
+/* If the root font-size is 20px, 1 rem is always 20px, 2rem is always 40px, etc. */
+
+/* root means default html font-size */
+#rems h2 {
+  font-size: 3rem;
+}
+
+#rems h3 {
+  font-size: 2rem;
+}
+
+#rems button {
+  font-size: 1.5rem;
+}

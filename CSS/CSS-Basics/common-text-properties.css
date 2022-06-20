@@ -1,0 +1,20 @@
+/*************** Common Text Properties ***************/
+h1 {
+  /* Centering text */
+  text-align: center;
+  /* Font Weight set to normal (700 = bold) */
+  font-weight: 400;
+  /* Text Decoration */
+  text-decoration: #f78129 wavy underline;
+  /* Space Between Letters */
+  letter-spacing: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  /* 1.25 times of normal line height */
+  line-height: 1.25;
+}
