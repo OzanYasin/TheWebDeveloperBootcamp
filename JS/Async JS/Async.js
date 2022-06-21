@@ -256,22 +256,24 @@ const delayedColorChange = (color, delay) => {
   });
 };
 
-delayedColorChange('red', 1000)
-  .then(() => delayedColorChange('red', 1000))
-  .then(() => delayedColorChange('orange', 1000))
-  .then(() => delayedColorChange('yellow', 1000))
-  .then(() => delayedColorChange('green', 1000))
-  .then(() => delayedColorChange('blue', 1000))
-  .then(() => delayedColorChange('indigo', 1000))
-  .then(() => delayedColorChange('violet', 1000));
+// delayedColorChange('red', 1000)
+//   .then(() => delayedColorChange('red', 1000))
+//   .then(() => delayedColorChange('orange', 1000))
+//   .then(() => delayedColorChange('yellow', 1000))
+//   .then(() => delayedColorChange('green', 1000))
+//   .then(() => delayedColorChange('blue', 1000))
+//   .then(() => delayedColorChange('indigo', 1000))
+//   .then(() => delayedColorChange('violet', 1000));
 
 // There is just one level nesting. Just better =)
 
+// !!!! 2 Pieces: !!!!
+
+// 1- Async Keyword
+// 2- Await Keyword
+
 // ------ The Async Keyword ------
 
-// 2 Pieces:
-
-// ----- 1- Async -----
 //    * Async functions always return a promise.
 
 async function hello() {} // It returns promise automatically.
@@ -306,4 +308,47 @@ login('kalsdfj', 'corgifeetarecute')
 
 // Promise is either resolved or rejected depending on what's going on inside of it. If we return a value, the promise will be resolved with thath value. If we throw an error, the promise will be rejected with that value or with an error value.
 
-// ----- 2- Await -----
+// ------ The Await Keyword ------
+
+//    * We can only use the await keyword inside of functions declared with async.
+//    * Await will pause the execution of the function, waiting for a promise to be resolved.
+
+// delayedColorChange('red', 1000)
+//   .then(() => delayedColorChange('red', 1000))
+//   .then(() => delayedColorChange('orange', 1000))
+//   .then(() => delayedColorChange('yellow', 1000))
+//   .then(() => delayedColorChange('green', 1000))
+//   .then(() => delayedColorChange('blue', 1000))
+//   .then(() => delayedColorChange('indigo', 1000))
+//   .then(() => delayedColorChange('violet', 1000));
+
+async function rainbow() {
+  await delayedColorChange('red', 1000); // It's going to wait for a promise to be resolved
+  await delayedColorChange('orange', 1000);
+  // It will execute orange if we don't use await keyword
+  await delayedColorChange('yellow', 1000);
+  // So, if you want to keep going, just keep awaiting things.
+  await delayedColorChange('green', 1000);
+  await delayedColorChange('indigo', 1000);
+  await delayedColorChange('violet', 1000);
+  return 'ALL DONE!'; // It will be resolved promise because I return a value
+}
+
+rainbow().then(() => console.log('END OF RAINBOW! '));
+// OR WE CAN USE THIS:
+async function printRainbow() {
+  await rainbow();
+  console.log('END OF RAINBOW');
+}
+
+// ------- Handling Errors In Async Functions -------
+
+async function makeTwoRequests() {
+  try {
+    let data1 = await fakeRequest('/page1');
+    let data2 = await fakeRequest('/page2');
+  } catch (e) {
+    console.log('CAUGHT AN ERROR!');
+    console.log(`error is: ${e}`);
+  }
+} // In real world, if we're making a request, there are different things that could go wrong. So, a promose will be rejected with a reason, with some information, and we can then access that if we have a parameter for our 'catch'.
