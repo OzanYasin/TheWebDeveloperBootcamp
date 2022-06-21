@@ -48,3 +48,22 @@ const dog = { breed: 'lab', color: 'black', isAlive: true, owner: undefined };
 
 console.log(JSON.stringify(dog)); // {"breed":"lab","color":"black","isAlive":true}
 // There is no 'undefined' in JSON's format.
+
+// ------- Using Hoppscotch -------
+// https://hoppscotch.io/
+
+// It's a free, fast and beautiful API request builder. It helps you create requests faster.
+
+// Almost all of these free APIs you don't have to register for, you don't have to pay for pretty much all going to be GET requests based. (GET is type of a request)
+
+// hoppscoth.io makes JSON more readable and easy to get API's data.
+
+// There is another type of request, which is POST request. It's just a way of getting stuff from an API, whereas something like a post request is typically used when we're trying to send data, somewhere trying to post data.
+
+// !! POST request --> It means data that we're sending is going to be saved somewhere or stored in a database or have some sort of impact on the server somewhere.
+
+// In other word, GET & POST request's completely different.
+
+// ------ HTTP Verbs ------
+
+// Status Code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
