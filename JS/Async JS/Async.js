@@ -266,3 +266,44 @@ delayedColorChange('red', 1000)
   .then(() => delayedColorChange('violet', 1000));
 
 // There is just one level nesting. Just better =)
+
+// ------ The Async Keyword ------
+
+// 2 Pieces:
+
+// ----- 1- Async -----
+//    * Async functions always return a promise.
+
+async function hello() {} // It returns promise automatically.
+
+//    * If the function returns a value, the promise will be resolved with that value
+
+const sing = async () => {
+  return 'LA LA LA LA';
+};
+
+sing().then((data) => {
+  console.log('PROMISE RESOLVED WITH:', data);
+});
+
+//    * If the function throws an exception, the promise will be rejected
+
+const login = async (username, password) => {
+  if (!username || !password) throw 'Missing Credentials';
+  if (password === 'corgifeetarecute') return 'WELCOME!';
+  throw 'Invalid Password';
+};
+
+login('kalsdfj', 'corgifeetarecute')
+  .then((msg) => {
+    console.log('LOGGED IN!');
+    console.log(msg);
+  })
+  .catch((err) => {
+    console.log('ERROR');
+    console.log(err);
+  });
+
+// Promise is either resolved or rejected depending on what's going on inside of it. If we return a value, the promise will be resolved with thath value. If we throw an error, the promise will be rejected with that value or with an error value.
+
+// ----- 2- Await -----
