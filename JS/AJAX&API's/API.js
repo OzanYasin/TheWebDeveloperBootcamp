@@ -67,3 +67,94 @@ console.log(JSON.stringify(dog)); // {"breed":"lab","color":"black","isAlive":tr
 // ------ HTTP Verbs ------
 
 // Status Code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+// Successful responses - 200
+// Redirection messages - 300
+// Redirection messages - 400
+// Server error responses - 500
+
+// ------ Understanding Query Strings ------
+
+// ?sort=desc&color=blue
+// https://swapi.dev/api/people/5?color=green&age=23&silly=yes
+// It gets the exact same response with https://swapi.dev/api/people/5
+// So, the API is not going to look for any of this stuff, it does not care. It's very different than the base URL.
+
+// For example, https://www.tvmaze.com/api has shows?q=:query. 'q=' means search term. If we replace something else after q= it's going to search for that API.
+// https://www.tvmaze.com/api/shows/q=dragon
+
+// Some API data require more than one piece of query string
+// Example: https://api.tvmaze.com/schedule?country=US&date=2014-12-01
+
+// ------ HTTP Headers ------
+
+// Headers are an additional way of passing information with a given request and actually also with a response. It's kind of like metadata, little add on details as part of your request.
+
+// We can view these headers using the dev tools in Chrome at Network tab on any webpage.
+
+// ------ Making XHR's ------
+// This is the old way of doing it. It's a paint, but good to learn about it, due to understand how things have changed and helps to have some context.
+
+// XMLHttpRequest:
+
+// * The "original" way of sending requests via JS.
+// * Does not support promises, so...lots of callbacks!
+// * Clunky syntax (hard to remember)
+
+const request = new XMLHttpRequest();
+
+request.onload = function () {
+  console.log('IT LOADED!!');
+  const data = JSON.parse(this.responseText); // By doing that, it converts text response to an object.
+  console.log(data.name, data.height); // It response Luke Skywalker 172
+  // If you need to make multiple requests, or need to do something after this first request, you have to nested in here. Thats why we say it, it's clunky.
+};
+
+request.onerror = function () {
+  console.log('ERROR!!!');
+  console.log(this);
+};
+
+request.open('GET', 'https://swapi.dev/api/people/1/');
+request.send();
+
+// GOOD NEWS --> You don't have to remember it, because we've got fetch, which is the newer, fancier way of making requests via JavaScript.
+
+// -------- Using The Fetch API --------
+
+// It's improved way of making requests via JavaScript. It has support of promises and async function! Which is big improvement. It's 10+ years old.
+
+fetch('https://swapi.dev/api/people/1/') // Returns promise
+  .then((res) => {
+    console.log('RESOLVED!', res);
+    return res.json();
+  })
+  // .json() is a method that is added on to this fetch response object
+  .then((data) => {
+    console.log(data); // It gives parsed data
+  })
+  .catch((e) => {
+    console.log('ERROR', e);
+  });
+
+// 1- Fetch is going to return a promise
+// 2- It's going to send a request to this URL first, but then it returns a promise and that promise may be resolved or rejected.
+// 3- Then most importantly, we call res.json() on this response object because it had incomplete body. (body: ReadableStream - On the Console)
+// 4- Then we keep thing nice and flat, no need to nest anything.
+
+// !! Of course, we could refactor all this to be much nicer if we used a good old async function.
+
+const loadStarWarsPeople = async () => {
+  try {
+    const res = await fetch('https://swapi.dev/api/peopleasdaasdq/1/'); // It does not break at all due to try catch
+    const data = await res.json();
+    console.log(data);
+    const res2 = await fetch('https://swapi.dev/api/people/2/');
+    const data2 = await res2.json();
+    console.log(data2);
+  } catch (e) {
+    console.log('ERROR!!', e);
+  }
+};
+
+// ------- Introducing Axios -------
