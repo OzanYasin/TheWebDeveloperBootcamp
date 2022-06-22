@@ -158,3 +158,46 @@ const loadStarWarsPeople = async () => {
 };
 
 // ------- Introducing Axios -------
+// https://github.com/axios/axios#installing
+
+// Axios is a libary that works for Node.js
+
+// You can use one libary that will make requests from the browser, which is what we care about. Also in the same libary, we'll make requests from the server side.
+
+// Using jsDelivr CDN:
+// <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>;
+
+// Lets make same swapi thing;
+
+// It already has data, fully filled. It parsed the JSON and it filled in this data field with that pars result.
+
+axios
+  .get('https://swapi.dev/api/people/1/') // It does return promise
+  .then((res) => {
+    console.log('RESPONSE', res);
+  })
+  .catch((err) => {
+    console.log('ERROR!!!', err);
+  });
+
+// Let's make it with async function;
+
+const getStarWarsPerson = async (id) => {
+  try {
+    const res = await axios.get(`https://swapi.dev/api/people/${id}/`);
+    console.log('HERE IS YOUR DATA', res.data);
+  } catch (e) {
+    console.log('ERROR!!!', e1);
+  }
+};
+
+// getStarWarsPerson(5);
+// getStarWarsPerson(10);
+
+// ------ Setting Headers With Axios ------
+
+const getDadJoke = async () => {
+  const config = { headers: { Accept: 'application/json' } };
+  const res = await axios.get('https://icanhazdadjoke.com/', config);
+  console.log(res.data.joke);
+};
