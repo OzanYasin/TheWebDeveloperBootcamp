@@ -4,13 +4,12 @@ const form = document.querySelector('#searchForm');
 form.addEventListener('submit', async function (e) {
   // Prevent Default Form action (GET)
   e.preventDefault();
-  // console.log(dir);
+  // console.dir();
   const searchTerm = form.elements.query.value;
   // We are looking for params. q: is searching term for api.tvmaze.com
   const config = { params: { q: searchTerm } }; // we pass config object to add as query string (params)
   // Must have 'await' to call axios.get
   const res = await axios.get(`https://api.tvmaze.com/search/shows`, config);
-  deleteImages();
   getImages(res.data);
   form.elements.query.value = ''; // Emptying search input after click on button
 });
@@ -23,12 +22,5 @@ const getImages = (shows) => {
       img.src = result.show.image.medium;
       document.body.append(img);
     }
-  }
-};
-
-const deleteImages = () => {
-  if (document.body.IMG) {
-    const IMGs = document.querySelectorAll('IMG');
-    IMGs.remove();
   }
 };
