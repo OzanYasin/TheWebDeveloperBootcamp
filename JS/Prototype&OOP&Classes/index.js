@@ -86,9 +86,17 @@ class Color {
   greet() {
     return `Hello From ${this.name}!`;
   }
-  rgb() {
+  innerRGB() {
     const { r, g, b } = this;
-    return `rgb(${r},${g},${b})`;
+    return `${r},${g},${b}`;
+  }
+  rgb() {
+    this;
+    // const { r, g, b } = this;
+    return `rgb(${this.innerRGB()})`;
+  }
+  rgba(a = 1.0) {
+    return `rgba(${this.innerRGB()},${a})`;
   }
 }
 
