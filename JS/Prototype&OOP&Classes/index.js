@@ -44,26 +44,39 @@ const firstColor = makeColor(35, 255, 150);
 
 // ----------------------------
 
-function Color(r, g, b) {
-  this.r = r;
-  this.g = g;
-  this.b = b;
-  console.log(this); // it refers to the window due to its not in an object. It's just in the scope of a function. So, the nearest scope is window.
-}
+// function Color(r, g, b) {
+//   this.r = r;
+//   this.g = g;
+//   this.b = b;
+//   console.log(this); // it refers to the window due to its not in an object. It's just in the scope of a function. So, the nearest scope is window.
+// }
 
-new Color(255, 40, 100);
+// new Color(255, 40, 100);
 // new will be used to create a new object for you based off of this pattern. (instead of refers to window)
 
 // Any time we call it with a *new* keyword, it makes us a new object that sets the constructor to color of that object, and then it sets the value of this to that new empty object.
 
-Color.prototype.rgb = function () {
-  const { r, g, b } = this;
-  return `rgb(${r},${g},${b})`;
-};
+// Color.prototype.rgb = function () {
+//   const { r, g, b } = this;
+//   return `rgb(${r},${g},${b})`;
+// };
 
-const color1 = new Color(50, 100, 150); // if we have a look at color1 variable, it does not have that method rgb defined on itself.
+// const color1 = new Color(50, 100, 150); // if we have a look at color1 variable, it does not have that method rgb defined on itself.
 // It's defined on the prototype (__proto__)
 
 // **But we can still call color1.rgb(), which is the very important part.
 // We can still access it from the prototype object, just like with an array or a string.
 // So, this more efficient than our factory approach, where we return a new object every time it's called.
+
+// ---------------------------------
+
+// JavaScript Classes
+
+class Color {
+  constructor(r, g, b) {
+    console.log('inside constructor!');
+    console.log(r, g, b);
+  }
+}
+
+const c1 = new Color(255, 67, 89);
