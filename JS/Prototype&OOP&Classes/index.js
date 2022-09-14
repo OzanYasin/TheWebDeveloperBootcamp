@@ -73,10 +73,24 @@ const firstColor = makeColor(35, 255, 150);
 // JavaScript Classes
 
 class Color {
-  constructor(r, g, b) {
-    console.log('inside constructor!');
-    console.log(r, g, b);
+  constructor(r, g, b, name) {
+    // lets make an equality between arguments by using this.
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    this.name = name;
+    // those are the properties we are adding to the object.
+  }
+  // We do not have to type Color.prototype.greet
+  // We just put it inside this class, so we can group everything together.
+  greet() {
+    return `Hello From ${this.name}!`;
+  }
+  rgb() {
+    const { r, g, b } = this;
+    return `rgb(${r},${g},${b})`;
   }
 }
 
 const c1 = new Color(255, 67, 89);
+const white = new Color(255, 255, 255, 'white');
