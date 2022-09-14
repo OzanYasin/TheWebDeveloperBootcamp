@@ -186,4 +186,18 @@ class ClassPracticeColorFunction {
   }
 }
 
-('hsl(130, 50%, 40%)');
+// ---------------------------------------------
+
+// Extends & Super Keywords
+
+class Cat {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  eat() {
+    return `${this.name} is eating!`;
+  }
+}
+
+const monty = new Cat('monty', 8);
