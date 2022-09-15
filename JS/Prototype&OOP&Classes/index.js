@@ -43,6 +43,7 @@ const firstColor = makeColor(35, 255, 150);
 // This not the way people use. It's just not as ideal as it could be.
 
 // ----------------------------
+// Constructor Functions
 
 // function Color(r, g, b) {
 //   this.r = r;
