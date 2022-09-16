@@ -191,8 +191,9 @@ class ClassPracticeColorFunction {
 
 // Extends & Super Keywords
 
-class Cat {
+class Pet {
   constructor(name, age) {
+    // console.log('IN PET CONSTRUCTOR!');`
     this.name = name;
     this.age = age;
   }
@@ -201,4 +202,25 @@ class Cat {
   }
 }
 
+class Cat extends Pet {
+  constructor(name, age, livesLeft = 9) {
+    // console.log('IN CAT CONSTRUCTOR!');
+    super(name, age); // super is going to reference the class that we are extending from. We extend from Pet in this case.
+
+    this.livesLeft = livesLeft;
+  }
+  meow() {
+    return 'MEOWWW!!';
+  }
+}
+
 const monty = new Cat('monty', 8);
+
+class Dog extends Pet {
+  bark() {
+    return 'WOOOF!!';
+  }
+  eat() {
+    return `${this.name} scarfs his food!`;
+  }
+}
