@@ -351,6 +351,6 @@ async function makeTwoRequests() {
     console.log('CAUGHT AN ERROR!');
     console.log(`error is: ${e}`);
   }
-} // In real world, if we're making a request, there are different things that could go wrong. So, a promose will be rejected with a reason, with some information, and we can then access that if we have a parameter for our 'catch'.
+} // In real world, if we're making a request, there are different things that could go wrong. So, a promise will be rejected with a reason, with some information, and we can then access that if we have a parameter for our 'catch'.
 
 // END
