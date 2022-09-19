@@ -42,13 +42,11 @@ app.get('/dogs', (req, res) => {
 
 app.get('/search', (req, res) => {
   // console.log(req.query);
-  const { q, color } = req.query;
+  const { q } = req.query;
   if (!q) {
     res.send('Nothing found if nothing searched.');
-  } else if (!color) {
-    res.send(`Search results for ${q}. <hr> There is no color to set.`);
   }
-  res.send(`Search results for ${q}. <hr> Color is ${color}`);
+  res.send(`Search results for ${q}.`);
 });
 
 app.get('*', (req, res) => {
