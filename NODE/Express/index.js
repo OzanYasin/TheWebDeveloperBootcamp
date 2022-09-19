@@ -30,9 +30,11 @@ app.use((req, res) => {
   // res.send is going to actually send and generate a HTTP response and this is all express is doing for us.
 });
 
-// !! HTTP Request is not a JavaScript object, its text information.
+// ** HTTP Request is not a JavaScript object, its text information.
 // Express take that data, it parses it and it turns it into a object that it passes in.
 
 app.listen(3000, () => {
   console.log('Listening on port 3000!');
 });
+
+//https://expressjs.com/en/starter/hello-world.html
