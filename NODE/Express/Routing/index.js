@@ -8,6 +8,16 @@ app.get('/', (req, res) => {
   res.send('This is the home page.');
 });
 
+app.get('/r/:subreddit', (req, res) => {
+  const { subreddit } = req.params;
+  res.send(`<h1>This is a ${subreddit} subreddit.</h1>`);
+});
+
+app.get('/r/:subreddit/:postId', (req, res) => {
+  const { subreddit, postId } = req.params;
+  res.send(`Post ID: ${postId} on the ${subreddit} subreddit.`);
+});
+
 app.get('/cats', (req, res) => {
   // console.log('Cat request!');
   res.send('MEOW!');
@@ -30,3 +40,5 @@ app.listen(3000, () => {
 // !! Remember,
 // Request is an object, created by express based upon the incoming HTTP request.
 // Response is an object made by express, both of which are passed into this callback and response has.
+
+// --------------------------------------------
