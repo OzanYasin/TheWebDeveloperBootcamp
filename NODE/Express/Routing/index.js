@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('This is the home page.');
+  res.send('This is the home page with nodemon.');
 });
 
 app.get('/r/:subreddit', (req, res) => {
