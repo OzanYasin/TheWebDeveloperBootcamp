@@ -21,8 +21,14 @@ app.get('/', (req, res) => {
   res.render('home.ejs'); // no need to explain /view directory. It checks it on default.
 });
 
+app.get('/r/:subreddit', (req, res) => {
+  const { subreddit } = req.params;
+  res.render('subreddit', { subreddit });
+});
+
 app.get('/rand', (req, res) => {
-  res.render('random');
+  const rand = Math.floor(Math.random() * 10) + 1;
+  res.render('random', { rand });
 });
 
 //--------------------
