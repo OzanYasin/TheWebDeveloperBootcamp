@@ -9,12 +9,20 @@
 
 const express = require('express');
 const app = express();
+const path = require('path'); // The path module provides utilities for working with file and directory paths.
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
+// !! It takes current directory name (process.cwd) and we joining that path, the full path to get there with /views
+// Thats a solution to res.render('home.ejs) work correctly while we start the server from another directory.
 
 //Renders a view and sends the rendered HTML string to the client.
 app.get('/', (req, res) => {
   res.render('home.ejs'); // no need to explain /view directory. It checks it on default.
+});
+
+app.get('/rand', (req, res) => {
+  res.render('random');
 });
 
 //--------------------
